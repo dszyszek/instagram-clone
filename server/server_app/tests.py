@@ -1,30 +1,30 @@
+import json
 from django.test import TestCase
 from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
 from rest_framework.views import status
 from .models import Profile
-from .serializers import ServerSerializer
+from .serializers import ProfileSerializer
 
+from .utils.scrape_images import scrape_images
 
 class ProfileInfoTest(APITestCase):
     client = APIClient()
 
     @staticmethod
     def create_profile(name=''):
-        Profile.objects.create(name=name)
+        images_source = json.dumps(scrape_images(name))
+        Profile.objects.create(name=name, images_source=images_source)
     
     def setUp(self):
         self.create_profile('parrot')
-        self.create_profile('rope')
-        self.create_profile('shrek')
     
 
-class GetProfileTest(ProfileInfoTest):
+    def test_get_parrot_profile_ok(self):
+        res = self.client.get(reverse('ProfilesView', kwargs={'profile_name': 'parrot'}))
 
-    def get_all_profiles(self):
-        res = self.client.get(reverse('profiles'))
-
-        expected = Profile.objects.all()
-        serialized = ServerSerializer(expected, many=True)
+        expected = Profile.objects.filter(name='parrot').values()
+        serialized = ProfileSerializer(expected, many=True)
         self.assertEqual(res.data, serialized.data)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
+
