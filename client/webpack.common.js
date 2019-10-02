@@ -12,7 +12,7 @@ module.exports = {
             test: /\.js$/,
             exclude: /node_modules/
         },{
-            test: /\.(png|jpg)$/,
+            test: /\.(png|jpg|eot|ttf|woff|woff2|svg)$/,
             loader: 'url-loader'
         }, {
             test: /\.s?css$/,
