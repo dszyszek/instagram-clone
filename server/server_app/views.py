@@ -1,7 +1,20 @@
 from rest_framework import generics
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
 from .models import Profile
 from .serializers import ProfileSerializer
 from .utils.scrape_images import scrape_images
+
+
+class Index(APIView):
+
+    def get(self, req):
+        msg = {
+            'msg': 'Connected successfully to API'
+        }
+        return Response(msg)
+
 
 class ProfilesView(generics.ListAPIView):
     lookup_url_kwarg = 'profile_name'
