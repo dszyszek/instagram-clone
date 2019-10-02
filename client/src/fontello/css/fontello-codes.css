@@ -1,2 +1,5 @@
 
+.icon-compass:before { content: '\e800'; } /* '' */
+.icon-heart-empty:before { content: '\e801'; } /* '' */
 .icon-instagram:before { content: '\f16d'; } /* '' */
+.icon-user-o:before { content: '\f2c0'; } /* '' */
