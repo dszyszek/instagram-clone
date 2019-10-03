@@ -13,7 +13,6 @@ const StyledMainWrapper = styled.div`
 const StyledContent = styled.div`
     width: 45%;
     margin: 0 auto;
-    border: 1px solid red;
 `;
 
 
@@ -23,9 +22,10 @@ class MainContent extends Component {
         return (
             <StyledMainWrapper>
                 <StyledContent>
-                    <ImageCard>
-                    
-                    </ImageCard>
+                    <ImageCard />
+                    <ImageCard />
+                    <ImageCard />
+
                 </StyledContent>
             </StyledMainWrapper>
         );
