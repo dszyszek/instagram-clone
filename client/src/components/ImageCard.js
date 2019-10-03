@@ -11,10 +11,23 @@ const StyledCard = styled.article`
     background-color: #fff;
 `;
 
-const StyledCardHeader = styled.div`
+const StyledCardHeaderWrapper = styled.div`
     height: 7%;
     width: 100%;
-    background-color: green;
+    display: flex;
+    justify-content: space-between;
+`;
+
+const StyledCardHeaderWrapperItem = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+const StyledAvatar = styled.img`
+    height: 34px;
+    width: 34px;
+    border-radius: 34px;
+    margin: 0 15px;
 `;
 
 const StyledImageHolder = styled.div`
@@ -88,9 +101,17 @@ class ImageCard extends Component {
     render() {
         return (
             <StyledCard>
-                <StyledCardHeader>
-                
-                </StyledCardHeader>
+                <StyledCardHeaderWrapper>
+                    <StyledCardHeaderWrapperItem>
+                        <StyledAvatar src='https://media.thestar.com.my/Prod/BC31E7E4-06FF-40A1-8B75-E812DE06F54B'></StyledAvatar>
+                        <div>
+                            <span style={{fontWeight: 'bold'}}>some_nick</span>
+                        </div>
+                    </StyledCardHeaderWrapperItem>
+                    <StyledCardHeaderWrapperItem>
+                        <i className='icon-dot-3' style={{fontSize: '28px', marginRight: '10px'}}></i>
+                    </StyledCardHeaderWrapperItem>
+                </StyledCardHeaderWrapper>
 
                 <StyledImageHolder>
                     <img src='https://media.thestar.com.my/Prod/BC31E7E4-06FF-40A1-8B75-E812DE06F54B' style={{height: '100%', width: '100%'}} />
