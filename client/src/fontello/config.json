@@ -29,6 +29,18 @@
       "css": "user-o",
       "code": 62144,
       "src": "fontawesome"
+    },
+    {
+      "uid": "5b1a68729f60f8be3769238379d1b8e9",
+      "css": "comment",
+      "code": 59394,
+      "src": "linecons"
+    },
+    {
+      "uid": "363271b58af838dd4be5013284672322",
+      "css": "bookmark-empty",
+      "code": 59395,
+      "src": "elusive"
     }
   ]
 }
