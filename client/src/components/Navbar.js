@@ -5,7 +5,7 @@ import logo from '../../static/instagram_logo.png'
 
 const StyledNav = styled.nav`
     width: 100%;
-    height: 80px;
+    height: 8vh;
     background-color: #fff;
     display: flex;
     border-bottom: 1px solid rgba(0,0,0,0.0975);
@@ -14,7 +14,7 @@ const StyledNav = styled.nav`
 const StyledWrapper = styled.div`
     height: 36px;
     width: 100%;
-    margin: 20.5px 12%;
+    margin: 20.5px 20%;
     display: flex;
     align-items: center;
     justify-content: space-between;
