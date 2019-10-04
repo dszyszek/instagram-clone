@@ -9,6 +9,10 @@ const StyledNav = styled.nav`
     background-color: #fff;
     display: flex;
     border-bottom: 1px solid rgba(0,0,0,0.0975);
+
+    @media (max-width: 1300px) {
+        height: 12vh;
+    }
 `;
 
 const StyledWrapper = styled.div`

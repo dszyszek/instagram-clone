@@ -9,6 +9,10 @@ const StyledCard = styled.article`
     display: flex;
     flex-direction: column;
     background-color: #fff;
+
+    @media (max-width: 1300px) {
+        height: 700px;
+    }
 `;
 
 const StyledCardHeaderWrapper = styled.div`
@@ -137,7 +141,7 @@ class ImageCard extends Component {
                     </StyledLabelLikes>
                     <StyledLabelAddComment>
                         <StyledInput type='text' placeholder='Add comment...'></StyledInput>
-                        <StyledMakePublic>Make public</StyledMakePublic>
+                        <StyledMakePublic>Publish</StyledMakePublic>
                     </StyledLabelAddComment>
                 </StyledCardFooterWrapper>
             </StyledCard>                
