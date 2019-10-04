@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-import App from './components/App';
+import Router from './router/Router';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+import './fontello/css/fontello.css';
+
+ReactDOM.render(<Router />, document.getElementById('app'));
 
 serviceWorker.unregister();
