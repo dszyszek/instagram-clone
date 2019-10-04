@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from django.utils import timezone
 import random
 import namesgenerator
+import json
 
 from .models import Profile
 from .serializers import ProfileSerializer
@@ -34,7 +35,7 @@ class ProfilesView(generics.ListAPIView):
                 raise Profile.DoesNotExist
 
         except Profile.DoesNotExist:
-            new_profile_urls = scrape_images(parameter_from_url)
+            new_profile_urls = json.dumps(scrape_images(parameter_from_url))
             new_profile = Profile(name=parameter_from_url, images_source=new_profile_urls, pub_date=pub_date, likes=likes, nick=nick)
             new_profile.save()
 
