@@ -24,12 +24,12 @@ class MainContent extends Component {
     }
 
     componentDidMount = () => {
-        this.getProfileData();
+        this.getProfiles();
     }
 
-    getProfileData = async (url) => {
+    getProfiles = async () => {
 
-        const data = await axios.get('http://localhost:9000/profile/spongebob');
+        const data = await axios.get('http://localhost:9000/profile/');
         this.setState(prev => ({
             profileData: [...prev.profileData, ...data.data]
         }));
@@ -40,7 +40,7 @@ class MainContent extends Component {
             <StyledMainWrapper>
                 <StyledContent>
                     {this.state.profileData.length && this.state.profileData.map(prf => (
-                        <ImageCard key={prf.name} profile={prf} />
+                        <ImageCard key={prf.nick} profile={prf} />
                     ))}
                 </StyledContent>
             </StyledMainWrapper>

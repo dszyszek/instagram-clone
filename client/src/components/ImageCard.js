@@ -102,14 +102,21 @@ const StyledMakePublic = styled.button`
 `;
 
 class ImageCard extends Component {
+    componentDidMount = () => {
+        console.log(this.props.profile)
+    }
+
     render() {
+        const {profile} = this.props;
+        const parsedImagesSource = JSON.parse(profile.images_source);
+
         return (
             <StyledCard>
                 <StyledCardHeaderWrapper>
                     <StyledCardHeaderWrapperItem>
-                        <StyledAvatar src='https://media.thestar.com.my/Prod/BC31E7E4-06FF-40A1-8B75-E812DE06F54B'></StyledAvatar>
+                        <StyledAvatar src={parsedImagesSource[0]}></StyledAvatar>
                         <div>
-                            <span style={{fontWeight: 'bold'}}>some_nick</span>
+                            <span style={{fontWeight: 'bold'}}>{profile.nick}</span>
                         </div>
                     </StyledCardHeaderWrapperItem>
                     <StyledCardHeaderWrapperItem>
@@ -118,7 +125,7 @@ class ImageCard extends Component {
                 </StyledCardHeaderWrapper>
 
                 <StyledImageHolder>
-                    <img src='https://media.thestar.com.my/Prod/BC31E7E4-06FF-40A1-8B75-E812DE06F54B' style={{height: '100%', width: '100%'}} />
+                    <img src={parsedImagesSource[parsedImagesSource.length - 1]} style={{height: '100%', width: '100%'}} />
                 </StyledImageHolder>
 
                 <StyledCardFooterWrapper>
@@ -133,10 +140,10 @@ class ImageCard extends Component {
                     </StyledIconsLabel>
                     <StyledLabelLikes>
                         <StyledLikesInfo>
-                            20 likes
+                            {profile.likes} likes
                         </StyledLikesInfo>
                         <StyledLikesTime>
-                            5 days ago
+                            {profile.pub_date}
                         </StyledLikesTime>
                     </StyledLabelLikes>
                     <StyledLabelAddComment>
