@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Profile(models.Model):
     name = models.CharField(max_length=500)
     images_source = models.TextField(null=True)
@@ -9,3 +10,13 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Post(models.Model):
+    pub_date = models.DateField(default=None)
+    image = models.TextField(null=True)
+    nick = models.CharField(max_length=200)
+    likes = models.IntegerField(default=None)
+
+    def __str__(self):
+        return self.nick
