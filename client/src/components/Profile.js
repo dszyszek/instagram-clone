@@ -1,11 +1,52 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+import axios from 'axios';
+
+import ProfileHeader from './ProfileHeader';
+
+
+const StyledProfileBackground = styled.div`
+    width: 100%;
+    height: 91vh;
+    background-color: #fafafa;
+    margin: 0;
+`;
+
+const StyledProfileHeaderWrapper = styled.section`
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    margin: 0 auto;
+    height: 96%;
+    padding-top: 2%;
+`;
 
 class Profile extends Component {
+    state = {
+        profile: {}
+    }
+
+    componentDidMount = () => {
+        this.getProfile();
+    }
+
+    getProfile = async () => {
+
+        const data = await axios.get(`http://localhost:9000/profile/${this.props.match.params.profile}`);
+        this.setState({
+            profile: {...data.data[0]}
+        });
+    }
+
     render() {
+        const {profile} = this.state;
+
         return (
-            <h1>
-                Profile {this.props.match.params.profile}
-            </h1>
+            <StyledProfileBackground>
+                <StyledProfileHeaderWrapper>            
+                    <ProfileHeader profile={profile} />
+                </StyledProfileHeaderWrapper>
+            </StyledProfileBackground>
         );
     }
 }
