@@ -3,6 +3,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import MainContent from '../components/MainContent';
 import Navbar from '../components/Navbar';
+import Profile from '../components/Profile';
 
 const Router = () => (
     <BrowserRouter>
@@ -13,6 +14,7 @@ const Router = () => (
                     
                     <Switch>
                         <Route path='/' component={MainContent} exact={true} />
+                        <Route path='/:profile' component={Profile} />
                     </Switch>
                 
                 </header>
