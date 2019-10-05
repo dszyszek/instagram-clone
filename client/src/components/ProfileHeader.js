@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, {ThemeProvider} from 'styled-components';
 
+import Loader from './Loader';
+
 
 const ProfileHeaderWrapper = styled.section`
     height: 30%;
@@ -56,9 +58,9 @@ const ProfileHeader = ({profile}) => {
     }
 
     Object.keys(profile).length === 0 ?
-     data = <h1>Loading...</h1> : 
+     data = <Loader /> : 
      data = (
-        <ProfileHeaderWrapper>
+         <>
             <StyledAvatarWrapper>
                 <ThemeProvider theme={profile}>        
                     <StyledAvatarBox />
@@ -82,10 +84,14 @@ const ProfileHeader = ({profile}) => {
                     </StyledInfoBoxLabel>
                 </StyledInfoBoxWrapper>
             </StyledInfoBox>
-        
+        </> 
+    );
+
+    return (        
+        <ProfileHeaderWrapper>
+            {data}
         </ProfileHeaderWrapper>
-     )
-    return data;
+    );
 };
 
 export default ProfileHeader;
