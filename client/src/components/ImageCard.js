@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
+
 
 const StyledCard = styled.article`
     width: 100%;
@@ -111,10 +113,20 @@ class ImageCard extends Component {
             <StyledCard>
                 <StyledCardHeaderWrapper>
                     <StyledCardHeaderWrapperItem>
-                        <StyledAvatar src={profile.profile_img}></StyledAvatar>
-                        <div>
-                            <span style={{fontWeight: 'bold'}}>{profile.nick}</span>
-                        </div>
+
+                        <Link to={`${profile.name}`} style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            textDecoration: 'none',
+                            color: 'black'
+                        }}>
+                            <StyledAvatar src={profile.profile_img}></StyledAvatar>
+
+                            <div>
+                                <span style={{fontWeight: 'bold'}}>{profile.nick}</span>
+                            </div>
+                        </Link>
+                    
                     </StyledCardHeaderWrapperItem>
                     <StyledCardHeaderWrapperItem>
                         <i className='icon-dot-3' style={{fontSize: '28px', marginRight: '10px'}}></i>

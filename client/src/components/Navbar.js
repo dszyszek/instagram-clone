@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 import logo from '../../static/instagram_logo.png'
 
@@ -68,10 +69,12 @@ class Navbar extends Component {
                 <StyledWrapper>
                     <StyledLogoBox>
                         <StyledIconInsta className='icon-instagram'></StyledIconInsta>
-                        <img src={logo} style={{
-                            height: '40px',
-                            paddingLeft: '15px'
-                        }}></img>
+                        <Link to='/'>                    
+                            <img src={logo} style={{
+                                height: '40px',
+                                paddingLeft: '15px'
+                            }}></img>
+                        </Link>
                     </StyledLogoBox>
                     
                     <StyledInput type='text' placeholder='Search...'></StyledInput>
