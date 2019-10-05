@@ -8,6 +8,8 @@ class Profile(models.Model):
     likes = models.IntegerField(default=None)
     nick = models.CharField(max_length=200)
     profile_img = models.CharField(max_length=500)
+    observers = models.IntegerField(default=None)
+    observed = models.IntegerField(default=None)
 
     def __str__(self):
         return self.name

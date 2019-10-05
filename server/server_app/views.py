@@ -27,6 +27,8 @@ class ProfilesView(generics.ListAPIView):
         pub_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         likes = random.randint(0, 200)
         nick = namesgenerator.get_random_name()
+        observers = likes = random.randint(0, 800)
+        observed = likes = random.randint(0, 800)
 
         try:
             if Profile.objects.filter(name=parameter_from_url).exists():
@@ -37,7 +39,7 @@ class ProfilesView(generics.ListAPIView):
         except Profile.DoesNotExist:
             new_profile_urls = scrape_images(parameter_from_url)
             new_profile_urls_json = json.dumps(scrape_images(parameter_from_url))
-            new_profile = Profile(name=parameter_from_url, images_source=new_profile_urls_json, pub_date=pub_date, likes=likes, nick=nick, profile_img=new_profile_urls[0])
+            new_profile = Profile(name=parameter_from_url, images_source=new_profile_urls_json, pub_date=pub_date, likes=likes, nick=nick, profile_img=new_profile_urls[0], observers=observers, observed=observed)
             
             new_post = Post(profile_img=new_profile_urls[0], name=parameter_from_url, image=new_profile_urls[-1], pub_date=pub_date, likes=likes, nick=nick)
 
