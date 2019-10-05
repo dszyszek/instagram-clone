@@ -13,7 +13,7 @@ from .utils.scrape_images import scrape_images
 
 class Index(APIView):
     def get(self, req):
-        queryset = Post.objects.all()
+        queryset = Post.objects.all().order_by('-pub_date')
         serializer = PostSerializer(queryset, many=True)
         return Response(serializer.data)
 
