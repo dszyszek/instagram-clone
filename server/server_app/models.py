@@ -13,6 +13,8 @@ class Profile(models.Model):
 
 
 class Post(models.Model):
+    profile_img = models.CharField(max_length=500)
+    name = models.CharField(max_length=500)
     pub_date = models.DateField(default=None)
     image = models.TextField(null=True)
     nick = models.CharField(max_length=200)

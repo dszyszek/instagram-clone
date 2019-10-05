@@ -9,4 +9,4 @@ class ProfileSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
     class Meta():
         model = Post
-        fields = ('image', 'pub_date', 'likes', 'nick')
+        fields = ('profile_img', 'name', 'image', 'pub_date', 'likes', 'nick')
