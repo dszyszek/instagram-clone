@@ -102,19 +102,16 @@ const StyledMakePublic = styled.button`
 `;
 
 class ImageCard extends Component {
-    componentDidMount = () => {
-        console.log(this.props.profile)
-    }
 
     render() {
         const {profile} = this.props;
-        const parsedImagesSource = JSON.parse(profile.images_source);
+        const date = new Date(profile.pub_date).toLocaleString();
 
         return (
             <StyledCard>
                 <StyledCardHeaderWrapper>
                     <StyledCardHeaderWrapperItem>
-                        <StyledAvatar src={parsedImagesSource[0]}></StyledAvatar>
+                        <StyledAvatar src={profile.profile_img}></StyledAvatar>
                         <div>
                             <span style={{fontWeight: 'bold'}}>{profile.nick}</span>
                         </div>
@@ -125,7 +122,7 @@ class ImageCard extends Component {
                 </StyledCardHeaderWrapper>
 
                 <StyledImageHolder>
-                    <img src={parsedImagesSource[parsedImagesSource.length - 1]} style={{height: '100%', width: '100%'}} />
+                    <img src={profile.image} style={{height: '100%', width: '100%'}} />
                 </StyledImageHolder>
 
                 <StyledCardFooterWrapper>
@@ -143,7 +140,7 @@ class ImageCard extends Component {
                             {profile.likes} likes
                         </StyledLikesInfo>
                         <StyledLikesTime>
-                            {profile.pub_date}
+                            {date}
                         </StyledLikesTime>
                     </StyledLabelLikes>
                     <StyledLabelAddComment>

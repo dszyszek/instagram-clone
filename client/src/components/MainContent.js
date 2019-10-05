@@ -39,9 +39,11 @@ class MainContent extends Component {
         return (
             <StyledMainWrapper>
                 <StyledContent>
-                    {this.state.profileData.length && this.state.profileData.map(prf => (
+
+                    {this.state.profileData.length ? this.state.profileData.map(prf => (
                         <ImageCard key={prf.nick} profile={prf} />
-                    ))}
+                    )) : <h2 style={{textAlign: 'center'}}>No content to show</h2>}
+                    
                 </StyledContent>
             </StyledMainWrapper>
         );
