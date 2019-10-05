@@ -50,17 +50,9 @@ const StyledParagraph = styled.p`
 `;
 
 const ProfileHeader = ({profile}) => {
-    let data;
-    let posts;
-
-    if (Object.keys(profile).length !== 0) {
-        posts = JSON.parse(profile.images_source);
-    }
-
-    Object.keys(profile).length === 0 ?
-     data = <Loader /> : 
-     data = (
-         <>
+    const posts = JSON.parse(profile.images_source)
+    return (        
+        <ProfileHeaderWrapper>
             <StyledAvatarWrapper>
                 <ThemeProvider theme={profile}>        
                     <StyledAvatarBox />
@@ -84,12 +76,6 @@ const ProfileHeader = ({profile}) => {
                     </StyledInfoBoxLabel>
                 </StyledInfoBoxWrapper>
             </StyledInfoBox>
-        </> 
-    );
-
-    return (        
-        <ProfileHeaderWrapper>
-            {data}
         </ProfileHeaderWrapper>
     );
 };

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 import ProfileHeader from './ProfileHeader';
+import ProfileBody from './ProfileBody';
+import Loader from './Loader';
 
 
 const StyledProfileBackground = styled.div`
@@ -40,11 +42,21 @@ class Profile extends Component {
 
     render() {
         const {profile} = this.state;
+        let data;
+
+        Object.keys(profile).length === 0 ?
+        data = <Loader /> : 
+        data = (
+            <>
+                <ProfileHeader profile={profile} />
+                <ProfileBody profile={profile} />
+            </>
+        )
 
         return (
             <StyledProfileBackground>
                 <StyledProfileHeaderWrapper>            
-                    <ProfileHeader profile={profile} />
+                    {data}
                 </StyledProfileHeaderWrapper>
             </StyledProfileBackground>
         );
