@@ -7,6 +7,7 @@ class Profile(models.Model):
     pub_date = models.DateTimeField(default=None)
     likes = models.IntegerField(default=None)
     nick = models.CharField(max_length=200)
+    profile_img = models.CharField(max_length=500)
 
     def __str__(self):
         return self.name

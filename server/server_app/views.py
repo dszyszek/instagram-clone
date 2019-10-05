@@ -37,7 +37,7 @@ class ProfilesView(generics.ListAPIView):
         except Profile.DoesNotExist:
             new_profile_urls = scrape_images(parameter_from_url)
             new_profile_urls_json = json.dumps(scrape_images(parameter_from_url))
-            new_profile = Profile(name=parameter_from_url, images_source=new_profile_urls_json, pub_date=pub_date, likes=likes, nick=nick)
+            new_profile = Profile(name=parameter_from_url, images_source=new_profile_urls_json, pub_date=pub_date, likes=likes, nick=nick, profile_img=new_profile_urls[0])
             
             new_post = Post(profile_img=new_profile_urls[0], name=parameter_from_url, image=new_profile_urls[-1], pub_date=pub_date, likes=likes, nick=nick)
 
