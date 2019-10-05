@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from django.utils import timezone
+import datetime
 import random
 import namesgenerator
 import json
@@ -24,7 +24,7 @@ class ProfilesView(generics.ListAPIView):
 
     def get_queryset(self):
         parameter_from_url = self.kwargs[self.lookup_url_kwarg]
-        pub_date = timezone.now()
+        pub_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         likes = random.randint(0, 200)
         nick = namesgenerator.get_random_name()
 
