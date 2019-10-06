@@ -9,7 +9,7 @@ import Loader from './Loader';
 
 const StyledProfileBackground = styled.div`
     width: 100%;
-    height: 91vh;
+    min-height: 91vh;
     background-color: #fafafa;
     margin: 0;
 `;
@@ -19,7 +19,7 @@ const StyledProfileHeaderWrapper = styled.section`
     flex-direction: column;
     width: 55%;
     margin: 0 auto;
-    height: 96%;
+    min-height: 96%;
     padding-top: 2%;
 `;
 

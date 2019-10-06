@@ -1,13 +1,12 @@
 import React from 'react';
 import styled, {ThemeProvider} from 'styled-components';
 
-import Loader from './Loader';
-
 
 const ProfileHeaderWrapper = styled.section`
     height: 30%;
     display: flex;
     border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 30px;
 `;
 
 const StyledAvatarWrapper = styled.div`
@@ -50,7 +49,7 @@ const StyledParagraph = styled.p`
 `;
 
 const ProfileHeader = ({profile}) => {
-    const posts = JSON.parse(profile.images_source)
+    const posts = JSON.parse(profile.images_source);
     return (        
         <ProfileHeaderWrapper>
             <StyledAvatarWrapper>
